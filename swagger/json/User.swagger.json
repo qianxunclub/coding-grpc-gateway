@@ -1,0 +1,227 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "User.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/coding-core/UserService/getById": {
+      "post": {
+        "operationId": "UserService_getById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/enterpriseUser"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/enterpriseGetUserByIdRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "enterpriseFindByRoleIdResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/enterpriseUser"
+          }
+        }
+      }
+    },
+    "enterpriseGetUserByIdRequest": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "enterpriseRefrushOaUserInfoResponse": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "enterpriseUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "int64"
+        },
+        "last_logined_at": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "role": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "email": {
+          "type": "string"
+        },
+        "global_key": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "gravatar": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "name_pinyin": {
+          "type": "string"
+        },
+        "sex": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "birthday": {
+          "type": "string",
+          "format": "int64"
+        },
+        "location": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "slogan": {
+          "type": "string"
+        },
+        "introduction": {
+          "type": "string"
+        },
+        "job": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "points_left": {
+          "type": "number",
+          "format": "double"
+        },
+        "points_total": {
+          "type": "number",
+          "format": "double"
+        },
+        "balance": {
+          "type": "number",
+          "format": "double"
+        },
+        "phone_validation": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "password": {
+          "type": "string"
+        },
+        "email_validation": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "phone_country_code": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "title": "OWNER = 100;          // 创始人\n   ADMIN = 90;           // 项目管理员\n   MEMBER = 80;          // 项目成员\n   MEMBER_NO_CODE = 75;  // 项目内，受限成员\n   VISITOR = 70;         // 已登录访客角色\n   GUEST = 60;           // 未登录访客"
+        }
+      },
+      "title": "deprecated, pls use CodingUser instead"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

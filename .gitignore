@@ -1,0 +1,6 @@
+# Intellij IDEA Files
+.idea/
+.ideaDataSources/
+*.iml
+*.ipr
+*.iws
